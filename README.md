@@ -19,5 +19,13 @@ node build-page.mjs
 
 That writes `index.html`, which is the file to publish.
 
+## Checks
+Pull requests fail if a file in this repo contains an email address, a private key, an API token, or an email field on signatory data. The repository is public, so the check covers every text file, not only the HTML GitHub Pages serves.
+
+```
+node --test scripts/published-secrets.test.mjs
+node scripts/check-published-secrets.mjs
+```
+
 ## Outstanding
-The `hello@golucy.org` email link is still a placeholder and must not be advertised until an inbox is configured.
+The public contact address is still a placeholder and must not be written into the site until an inbox is configured.

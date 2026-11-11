@@ -32,3 +32,12 @@ Items here are not in progress. Do not implement them unless the user promotes o
 - Risks: a reviewer can still paste a bad submission onto the page. Do not add a captcha claim or an automated publish path while this is parked.
 
 ## From the agent
+
+### Require the published-secrets check before main updates
+- Parked: 2026-11-09
+- Priority: P1 — a direct push to main still publishes before the check can fail.
+- Why parked: the check is added; turning it into a required status is a GitHub branch setting, not part of the check.
+- Context: Pages serves the main branch of go-lucy/go-lucy-org-website as soon as it changes. Require the "Published secrets" check on main, and update main through pull requests.
+- Where: GitHub branch protection for main.
+- Depends on: the published-secrets workflow.
+- Risks: until this is on, someone can push a secret straight to main and it goes live. Requiring the check without allowing the people who publish to bypass it can also block an urgent page fix.
